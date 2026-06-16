@@ -1,0 +1,35 @@
+{
+  "name": "news-explorer-backend",
+  "version": "1.0.0",
+  "description": "Back-end do projeto final News Explorer",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malupcosta/news-explorer-backend.git"
+  },
+  "keywords": [],
+  "author": "Malu Costa",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/malupcosta/news-explorer-backend/issues"
+  },
+  "homepage": "https://github.com/malupcosta/news-explorer-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0",
+    "nodemon": "^3.1.14"
+  }
+}
