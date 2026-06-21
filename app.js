@@ -38,13 +38,13 @@ app.use(limiter);
 app.use(express.json());
 app.use(requestLogger);
 
-app.post("/signup", validateCreateUser, createUser);
-app.post("/signin", validateLogin, login);
+app.post("/api/signup", validateCreateUser, createUser);
+app.post("/api/signin", validateLogin, login);
 
-app.use(auth);
+app.use("/api", auth);
 
-app.use("/users", usersRouter);
-app.use("/articles", articlesRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/articles", articlesRouter);
 
 app.use((req, res, next) => {
   next(new NotFoundError(NOT_FOUND_MESSAGE));
