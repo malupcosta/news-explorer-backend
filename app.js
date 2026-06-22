@@ -4,12 +4,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const helmet = require("helmet");
-const rateLimit = require("express-rate-limit");
 const { errors } = require("celebrate");
 
 const usersRouter = require("./routes/users");
 const articlesRouter = require("./routes/articles");
 const auth = require("./middlewares/auth");
+const limiter = require("./middlewares/rateLimiter");
 const errorHandler = require("./middlewares/errorHandler");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 const { createUser, login } = require("./controllers/users");
@@ -26,11 +26,6 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 mongoose.connect(MONGO_URL);
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-});
 
 app.use(cors());
 app.use(helmet());
